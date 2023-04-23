@@ -1,4 +1,4 @@
-﻿namespace SuperMarioArtyutoBros
+﻿namespace SuperMarioArturoBros
 {
     public class Map
     {
@@ -57,11 +57,11 @@
                 for (int x = 0; x < w; x++)
                 {
                     v = map[(y * w) + x];
-                    if (v == '.')
-                        gImg.FillRectangle(Brushes.Tomato, x * u, y * u, u, u);
-                    if (v == '*')
+                    //if (v == '.')
+                        //gImg.FillRectangle(Brushes.Tomato, x * u, y * u, u, u);
+                    //if (v == '*')
                         //gImg.DrawImage(wood02, x * u, y * u, u, u);
-                    if (v == '#')
+                    //if (v == '#')
                         //gImg.DrawImage(wood, x * u, y * u, u, u);
                 }
             }
