@@ -38,7 +38,7 @@
             // TIMER
             // 
             TIMER.Enabled = true;
-            TIMER.Interval = 10;
+            TIMER.Interval = 25;
             TIMER.Tick += TIMER_Tick;
             // 
             // PCT_CANVAS
@@ -51,7 +51,6 @@
             PCT_CANVAS.SizeMode = PictureBoxSizeMode.StretchImage;
             PCT_CANVAS.TabIndex = 0;
             PCT_CANVAS.TabStop = false;
-            PCT_CANVAS.Paint += PCT_CANVAS_Paint;
             // 
             // COUNTDOWN
             // 
@@ -69,6 +68,7 @@
             Text = "SuperMarioArturoBros";
             SizeChanged += Form1_SizeChanged;
             KeyDown += Form1_KeyDown;
+            KeyPress += Form1_KeyPress;
             KeyUp += Form1_KeyUp;
             ((System.ComponentModel.ISupportInitialize)PCT_CANVAS).EndInit();
             ResumeLayout(false);

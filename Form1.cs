@@ -1,4 +1,5 @@
 using System.Drawing.Drawing2D;
+using System.Media;
 
 namespace SuperMarioArturoBros
 {
@@ -6,12 +7,19 @@ namespace SuperMarioArturoBros
     {
 
         Map map;
-        private static Rectangle src, dst;
-        private Sprites BG, back, mario;
+        Player player;
         int score;
-        bool right, left, jump;
+        bool right, left;
         int timeLeft;
         bool start = false;
+
+        SoundPlayer sPlayer;
+        Thread thread, thread2;
+
+        float fCameraPosX = 0.0f;
+        float fCameraPosY = 0.0f;
+
+        float fElapsedTime;
 
 
         public Form1()
@@ -28,39 +36,26 @@ namespace SuperMarioArturoBros
         private void Init()
         {
             timeLeft = 400;
-            map = new Map();
-            right = jump = false;
+            map = new Map(PCT_CANVAS.Size);
+            PCT_CANVAS.Image = map.bmp;
+            left = right = false;
             score = 0;
-            Size sizeSky = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height);
-            Size vizSky = new Size(PCT_CANVAS.Width * 2, PCT_CANVAS.Height);
-            BG = new Sprites(sizeSky, vizSky, new Point(), 5, Resource1.BG);
+            player = new Player();
+            fElapsedTime = 0.05f;
+            //Size sizeSky = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height);
+            //Size vizSky = new Size(PCT_CANVAS.Width * 2, PCT_CANVAS.Height);
+            //BG = new Sprites(sizeSky, vizSky, new Point(), 5, Resource1.BG);
 
-            Size sizeBack = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height / 2);
-            Size vizBack = new Size(PCT_CANVAS.Width, PCT_CANVAS.Height);
-            back = new Sprites(sizeBack, vizBack, new Point(), 15, map.BMP);
+            //Size sizeBack = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height / 2);
+            //Size vizBack = new Size(PCT_CANVAS.Width, PCT_CANVAS.Height);
+            //back = new Sprites(sizeBack, vizBack, new Point(), 15, map.BMP);
 
-            Point posMario = new Point((PCT_CANVAS.Width / 2) - 29, 300);
+            //Point posMario = new Point((PCT_CANVAS.Width / 2) - 29, 300);
         }
 
         private void TIMER_Tick(object sender, EventArgs e)
         {
-            if (right)
-            {
-                CANVAS_Action(1);
-            }
-            if (left)
-            {
-                CANVAS_Action(-1);
-            }
-            /*
-            if (jump && mario.PosY > 250 && mario.PosY < 50)
-            {
-                mario.PosY -= 20;
-            }*/
-            else
-                jump = false;
-            //score = mario.PosY.ToString();
-            PCT_CANVAS.Invalidate();
+            UpdateEnv();
         }
 
         private void PCT_CANVAS_Paint(object sender, PaintEventArgs e)
@@ -68,27 +63,10 @@ namespace SuperMarioArturoBros
             e.Graphics.PixelOffsetMode = PixelOffsetMode.HighSpeed;
             e.Graphics.SmoothingMode = SmoothingMode.HighSpeed;
 
-            BG.Display(e.Graphics);
+            //BG.Display(e.Graphics);
             e.Graphics.DrawString("MARIO \n  " + score, new Font("Arcade Normal", 17), Brushes.White, 50, 20);
             e.Graphics.DrawString("TIME \n " + timeLeft, new Font("Arcade Normal", 17), Brushes.White, 900, 20);
             e.Graphics.DrawString("LEVEL \n  1", new Font("Arcade Normal", 17), Brushes.White, 480, 20);
-        }
-
-        private void CANVAS_Action(int X)
-        {
-            if (X < 0)
-            {
-
-                BG.MoveLeft();
-                back.MoveLeft();
-
-            }
-            if (X > 0)
-            {
-
-                BG.MoveRight();
-                back.MoveRight();
-            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -102,30 +80,64 @@ namespace SuperMarioArturoBros
                     right = true;
                     break;
                 case Keys.Up:
-                    AsignY();
+                    player.FPlayerVelY = -6.0f;
+                    player.bPlayerOnGround = false;
                     break;
             }
-        }
-        private void AsignY()
-        {
-            //mario.PosY -= 60;
-            jump = true;
+
+            UpdateEnv();
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            //mario.Frame(0);
-            if (e.KeyCode == Keys.Right)
-                right = false;
-            if (e.KeyCode == Keys.Left)
-                left = false;
-            if (e.KeyCode == Keys.Up)
-                jump = false;//*/
+            if (e.KeyCode == Keys.Space)
+                return;
+
+            left = false;
+            right = false;
+
+            player.Stop();
+        }
+
+        private void UpdateEnv()
+        {
+            if (left)
+            {
+                player.Left(fElapsedTime);
+                map.BG.MoveLeft();
+            }
+            if (right)
+            {
+                player.Right(fElapsedTime);
+                map.BG.MoveLeft();
+            }
+
+            fCameraPosX = player.fPlayerPosX;
+            fCameraPosY = player.fPlayerPosY;
+
+            map.Draw(new PointF(fCameraPosX, fCameraPosY), player.fPlayerPosX.ToString(), player, timeLeft);
+            player.Update(fElapsedTime, map);
+            PCT_CANVAS.Invalidate();
         }
 
         private void COUNTDOWN_Tick(object sender, EventArgs e)
         {
             timeLeft--;
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)Keys.Space:
+                    if (player.FPlayerVelY == 0)// sin brincar o cayendo
+                    {
+                        player.FPlayerVelY = -15;
+                        player.Frame(2);
+                        player.bPlayerOnGround = false;
+                    }
+                    break;
+            }
         }
     }
 }
