@@ -11,6 +11,7 @@ namespace SuperMarioArturoBros
         int score;
         bool right, left, jump;
         int timeLeft;
+        bool start = false;
 
 
         public Form1()
