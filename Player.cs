@@ -33,6 +33,10 @@ namespace SuperMarioArturoBros
         {
             mainSprite = new Sprites(new Size(58, 70), new Size(20, 25), new Point(), Resource1.DINO_00, Resource1.DINO_L);
         }
+        public Player(int r)
+        {
+            mainSprite = new Sprites(new Size(115, 160), new Size(50, 60), new Point(0, 500), Resource1.KIRBY, Resource1.KIRBY_L);
+        }
 
         public void Right(float fElapsedTime)
         {
@@ -89,7 +93,7 @@ namespace SuperMarioArturoBros
             float fNewPlayerPosY = fPlayerPosY + fPlayerVelY * fElapsedTime;
 
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'o', '.');
-            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, '*', 'a');
+            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'a');
 
 
             // COLLISION
@@ -137,6 +141,54 @@ namespace SuperMarioArturoBros
 
             fPlayerPosX = fNewPlayerPosX;
             fPlayerPosY = fNewPlayerPosY;
+
+            mainSprite.Display(map.g);
+        }
+
+        public void Update(float fElapsedTime, Map map, int r)
+        {
+            //Gravity
+            //fPlayerVelY += 20.0f * fElapsedTime;//---------------
+
+            // Drag
+            if (bPlayerOnGround)
+            {
+                fPlayerVelX += -3.0f * fPlayerVelX * fElapsedTime;
+                if (Math.Abs(fPlayerVelX) < 0.01f)
+                    fPlayerVelX = 0.0f;
+            }
+
+            // Clamp velocities
+            if (fPlayerVelX > 10.0f)
+                fPlayerVelX = 10.0f;
+
+            if (fPlayerVelX < -10.0f)
+                fPlayerVelX = -10.0f;
+            float fNewPlayerPosX = fPlayerPosX + fPlayerVelX * fElapsedTime;
+  
+
+
+            // COLLISION
+            if (fPlayerVelX <= 0)//left
+            {
+                if ((map.GetTile((int)(fNewPlayerPosX + 0.0f), (int)(fPlayerPosY + 0.0f)) != '.') || (map.GetTile((int)(fNewPlayerPosX + 0.0f), (int)(fPlayerPosY + 0.9f)) != '.'))
+                {
+                    if (fPlayerVelX != 0)
+                        fNewPlayerPosX = (int)fNewPlayerPosX + 1;
+                    fPlayerVelX = 0;
+                }
+            }
+            else//right
+            {
+                if ((map.GetTile((int)(fNewPlayerPosX + 1.0f), (int)(fPlayerPosY + 0.0f)) != '.') || (map.GetTile((int)(fNewPlayerPosX + 1.0f), (int)(fPlayerPosY + 0.9f)) != '.'))
+                {
+                    if (fPlayerVelX != 0)
+                        fNewPlayerPosX = (int)fNewPlayerPosX;
+
+                    fPlayerVelX = 0;
+                }
+            }
+            fPlayerPosX = fNewPlayerPosX;
 
             mainSprite.Display(map.g);
         }

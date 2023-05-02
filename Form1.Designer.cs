@@ -51,6 +51,7 @@
             PCT_CANVAS.SizeMode = PictureBoxSizeMode.StretchImage;
             PCT_CANVAS.TabIndex = 0;
             PCT_CANVAS.TabStop = false;
+            PCT_CANVAS.Paint += PCT_CANVAS_Paint;
             // 
             // COUNTDOWN
             // 
