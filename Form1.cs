@@ -104,12 +104,10 @@ namespace SuperMarioArturoBros
             if (left)
             {
                 player.Left(fElapsedTime);
-                map.BG.MoveLeft();
             }
             if (right)
             {
                 player.Right(fElapsedTime);
-                map.BG.MoveLeft();
             }
 
             fCameraPosX = player.fPlayerPosX;
