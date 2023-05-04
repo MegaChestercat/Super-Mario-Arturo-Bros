@@ -73,29 +73,9 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BG {
-            get {
-                object obj = ResourceManager.GetObject("BG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap brick {
             get {
                 object obj = ResourceManager.GetObject("brick", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cc9 {
-            get {
-                object obj = ResourceManager.GetObject("cc9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +143,29 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap glass {
             get {
                 object obj = ResourceManager.GetObject("glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gokubig {
+            get {
+                object obj = ResourceManager.GetObject("Gokubig", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KIRBY {
+        internal static System.Drawing.Bitmap koopa {
             get {
-                object obj = ResourceManager.GetObject("KIRBY", resourceCulture);
+                object obj = ResourceManager.GetObject("koopa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap KIRBY_L {
+        internal static System.Drawing.Bitmap koopa2 {
             get {
-                object obj = ResourceManager.GetObject("KIRBY_L", resourceCulture);
+                object obj = ResourceManager.GetObject("koopa2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +216,16 @@ namespace SuperMarioArturoBros {
         internal static System.Drawing.Bitmap LinkL {
             get {
                 object obj = ResourceManager.GetObject("LinkL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LinkLFix1 {
+            get {
+                object obj = ResourceManager.GetObject("LinkLFix1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +266,16 @@ namespace SuperMarioArturoBros {
         internal static System.Drawing.Bitmap mario_RIGHT {
             get {
                 object obj = ResourceManager.GetObject("mario_RIGHT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap michael {
+            get {
+                object obj = ResourceManager.GetObject("michael", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,16 +363,6 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ring {
-            get {
-                object obj = ResourceManager.GetObject("ring", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap star {
             get {
                 object obj = ResourceManager.GetObject("star", resourceCulture);
@@ -386,6 +396,26 @@ namespace SuperMarioArturoBros {
         internal static System.Drawing.Bitmap upper {
             get {
                 object obj = ResourceManager.GetObject("upper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zombie1 {
+            get {
+                object obj = ResourceManager.GetObject("zombie1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zombie2 {
+            get {
+                object obj = ResourceManager.GetObject("zombie2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

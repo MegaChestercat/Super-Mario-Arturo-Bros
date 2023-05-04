@@ -11,8 +11,9 @@ namespace SuperMarioArturoBros
 
         private float fPlayerVelX = 0.0f;
         private float fPlayerVelY = 0.0f;
+        Random ran;
 
-        public bool finish, axolotl, cloro, chapopote, zubat, star = false;
+        public bool finish, coin1, coin2, axolotl, goku, koopa, zombie1, zombie2, michael, cloro, chapopote, zubat, eye, star = false;
 
         public Sprites MainSprite
         {
@@ -34,10 +35,8 @@ namespace SuperMarioArturoBros
         public Player()
         {
             mainSprite = new Sprites(new Size(15, 21), new Size(15, 21), new Point(), Resource1.mario_RIGHT, Resource1.MARIO_LEFT);
-        }
-        public Player(int r)
-        {
-            mainSprite = new Sprites(new Size(115, 160), new Size(50, 60), new Point(0, 500), Resource1.KIRBY, Resource1.KIRBY_L);
+            //mainSprite = new Sprites(new Size(58, 70), new Size(20, 25), new Point(), Resource1.LinkR, Resource1.LinkLFix1);
+            ran = new Random();
         }
 
         public void Right(float fElapsedTime)
@@ -95,14 +94,25 @@ namespace SuperMarioArturoBros
             float fNewPlayerPosY = fPlayerPosY + fPlayerVelY * fElapsedTime;
 
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'o', '.');
-            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'o');
+            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, '3', '.');
+            int temp = ran.Next(1,5);
+            if(temp == 2) CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'o');
+            if (temp == 3) CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', '3');
+            if (temp == 4) CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'U');
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'f', '.');
             CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'L');
             CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'Y');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'x');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'm');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'g');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '$');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '!');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'z');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'e');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'i');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'k');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '1');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '2');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'U');
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'U', '.');
 
@@ -156,20 +166,80 @@ namespace SuperMarioArturoBros
             mainSprite.Display(map.g);
         }
 
-        private static void CheckPicks(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c, char c2)
+        private void CheckPicks(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c, char c2)
         {
             // Check for pickups!
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
-                map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f, c2);
+            {
+                if(c == 'o')
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f, c2);
+                    coin1 = true;
+                }
+                else if(c == '3')
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f, c2);
+                    coin2 = true;
+                }
+                else
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f, c2);
+                }
+            }
 
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f) == c)
-                map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f, c2);
+            {
+                if (c == 'o')
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f, c2);
+                    coin1 = true;
+                }
+                else if (c == '3')
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f, c2);
+                    coin2 = true;
+                }
+                else
+                {
+                    map.SetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f, c2);
+                }
+            }
 
             if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f) == c)
-                map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f, c2);
+            {
+                if (c == 'o')
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f, c2);
+                    coin1 = true;
+                }
+                else if (c == '3')
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f, c2);
+                    coin2 = true;
+                }
+                else
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f, c2);
+                }
+            }
 
             if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f) == c)
-                map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f, c2);
+            {
+                if (c == 'o')
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f, c2);
+                    coin1 = true;
+                }
+                else if (c == '3')
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f, c2);
+                    coin2 = true;
+                }
+                else
+                {
+                    map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f, c2);
+                }
+            }
         }
 
         private void CheckPick(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c)
@@ -188,24 +258,47 @@ namespace SuperMarioArturoBros
                 else if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
                 else if (c == 'z') zubat = true;
+                else if (c == 'e') eye = true;
                 else if (c == 'U') star = true;
+                else if (c == 'm') michael = true;
+                else if (c == 'k') koopa = true;
+                else if (c == 'i') koopa = true;
+                else if (c == '1') zombie1 = true;
+                else if (c == '2') zombie2 = true;
+
             }
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f) == c)
             {
                 if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
                 else if (c == 'z') zubat = true;
+                else if (c == 'e') eye = true;
                 else if (c == 'U') star = true;
+                else if (c == 'k') koopa = true;
+                else if (c == 'i') koopa = true;
+                else if (c == '1') zombie1 = true;
+                else if (c == '2') zombie2 = true;
             }
             if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f) == c)
             {
                 if (c == 'z') zubat = true;
+                else if (c == 'e') eye = true;
                 else if (c == 'U') star = true;
+                else if (c == 'k') koopa = true;
+                else if (c == 'i') koopa = true;
+                else if (c == '1') zombie1 = true;
+                else if (c == '2') zombie2 = true;
             }
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
             {
                 if (c == 'z') zubat = true;
+                else if (c == 'e') eye = true;
                 else if (c == 'U') star = true;
+                else if (c == 'g') goku = true;
+                else if (c == 'k') koopa = true;
+                else if (c == 'i') koopa = true;
+                else if (c == '1') zombie1 = true;
+                else if (c == '2') zombie2 = true;
             }
         }
 

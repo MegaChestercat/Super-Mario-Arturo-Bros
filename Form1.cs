@@ -9,14 +9,12 @@ namespace SuperMarioArturoBros
 
         Map map;
         Player player;
-        int score;
         bool right, left;
         int timeLeft;
         bool start = false;
 
         SoundPlayer sPlayer;
         Thread thread, thread2;
-        int counter = 20;
         bool leftMove;
         int lives = 3;
 
@@ -24,7 +22,7 @@ namespace SuperMarioArturoBros
         float fCameraPosY = 0.0f;
 
         float fElapsedTime;
-        Player kirby;
+        Random ran;
 
 
         public Form1()
@@ -44,23 +42,11 @@ namespace SuperMarioArturoBros
             map = new Map(PCT_CANVAS.Size);
             PCT_CANVAS.Image = map.bmp;
             left = right = false;
-            score = 0;
             player = new Player();
             fElapsedTime = 0.05f;
             leftMove = true;
-            //Size sizeSky = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height);
-            //Size vizSky = new Size(PCT_CANVAS.Width * 2, PCT_CANVAS.Height);
-            //BG = new Sprites(sizeSky, vizSky, new Point(), 5, Resource1.BG);
-
-            //Size sizeBack = new Size(PCT_CANVAS.Width / 2, PCT_CANVAS.Height / 2);
-            //Size vizBack = new Size(PCT_CANVAS.Width, PCT_CANVAS.Height);
-            //back = new Sprites(sizeBack, vizBack, new Point(), 15, map.BMP);
-
-            //Point posMario = new Point((PCT_CANVAS.Width / 2) - 29, 300);
-            Point posKirby = new Point(128, 160); // Initial kirby position
-            Size sizeKirby = new Size(115, 160);  // Original pizel size
-            Size vizKirby = new Size(50, 60);     // Kirby display size
-            kirby = new Player(5);
+            ran = new Random();
+  
         }
 
         private void TIMER_Tick(object sender, EventArgs e)
@@ -116,6 +102,53 @@ namespace SuperMarioArturoBros
                 map.score = map.score + 400;
 
             }
+            if (player.goku)
+            {
+                TIMER.Enabled = false;
+                COUNTDOWN.Enabled = false;
+                MessageBox.Show("Hey Buddy, take this Senzu bean so you can became stronger", "Goku");
+                TIMER.Enabled = true;
+                COUNTDOWN.Enabled = true;
+                player.goku = false;
+                player.fPlayerPosX = player.fPlayerPosX + 1;
+                lives = lives + 2;
+
+            }
+            if (player.michael)
+            {
+                int temp = ran.Next(1, 5);
+                if (temp == 2)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("Hee Hee", "Michael");
+                    TIMER.Enabled = true;
+                    COUNTDOWN.Enabled = true;
+                    player.michael = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 1;
+                    
+                }
+                else if(temp == 3)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("I wish you good luck on your adventure.", "Michael");
+                    TIMER.Enabled = true;
+                    COUNTDOWN.Enabled = true;
+                    player.michael = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 1;
+                }
+                else if (temp == 4)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("Be careful where you step on", "Michael");
+                    TIMER.Enabled = true;
+                    COUNTDOWN.Enabled = true;
+                    player.michael = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 1;
+                }
+            }
             else if (player.chapopote)
             {
                 if (lives > 0)
@@ -140,13 +173,33 @@ namespace SuperMarioArturoBros
                 player.fPlayerPosY = player.fPlayerPosY - 2;
                 map.score = map.score - 230;
             }
-            else if (player.zubat)
+            else if (player.zubat || player.eye)
             {
                 if (lives > 0)
                 {
-                    player.zubat = false;
+                    if(player.zubat) player.zubat = false;
+                    if (player.eye) player.eye = false;
                     player.fPlayerPosX = player.fPlayerPosX - 2;
                     player.fPlayerPosY = player.fPlayerPosY + 2;
+                    lives--;
+                }
+                if (lives <= 0)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("Game Over. You run out of lives.", "Game Over");
+                    Application.Exit();
+                }
+            }
+            else if (player.koopa || player.zombie1 || player.zombie2)
+            {
+                if (lives > 0)
+                {
+                    if(player.koopa) player.koopa = false;
+                    if (player.zombie1) player.zombie1 = false;
+                    if (player.zombie2) player.zombie2 = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 2;
+                    player.fPlayerPosY = player.fPlayerPosY - 1;
                     lives--;
                 }
                 if (lives <= 0)
@@ -161,6 +214,16 @@ namespace SuperMarioArturoBros
             {
                 player.star = false;
                 map.score = map.score + 5999;
+            }
+            else if (player.coin1)
+            {
+                player.coin1 = false;
+                map.score = map.score + 290;
+            }
+            else if (player.coin2)
+            {
+                player.coin2 = false;
+                map.score = map.score + 100;
             }
         }
 
@@ -208,27 +271,6 @@ namespace SuperMarioArturoBros
 
             fCameraPosX = player.fPlayerPosX;
             fCameraPosY = player.fPlayerPosY;
-
-            if (counter > 0)
-            {
-                if (leftMove)
-                {
-                    kirby.Left(fElapsedTime);
-                    counter--;
-                }
-                else
-                {
-                    kirby.Right(fElapsedTime);
-                    counter--;
-                }
-            }
-            else
-            {
-                counter = 20;
-                leftMove = !leftMove;
-            }
-
-
 
             map.Draw(new PointF(fCameraPosX, fCameraPosY), player.fPlayerPosX.ToString(), player, timeLeft);
             player.Update(fElapsedTime, map);

@@ -121,14 +121,8 @@
   <data name="axolotl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\axolotl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\BG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="brick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\brick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cc9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\cc9.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chapopote" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\chapopote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +142,14 @@
   <data name="DINO_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\DINO_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\glass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gokubig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Gokubig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +157,17 @@
   <data name="ice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="KIRBY" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\KIRBY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="koopa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\koopa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="KIRBY_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\KIRBY_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="koopa2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\koopa2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LinkL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\LinkL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LinkLFix1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\LinkLFix1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LinkR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\LinkR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,6 +180,9 @@
   </data>
   <data name="mario_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\mario_RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="michael" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\michael.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mushroom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\mushroom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,9 +208,6 @@
   <data name="rainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\rainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="star" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -216,6 +219,12 @@
   </data>
   <data name="upper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\upper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zombie1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\zombie1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zombie2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\zombie2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zubat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\zubat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
