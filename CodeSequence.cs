@@ -43,8 +43,9 @@ namespace SuperMarioArturoBros
 
         public void EasterEgg()
         {
-            
 
+            sound = new SoundPlayer(Resource1.japan);
+            sound.Play();
         }
     }
 }

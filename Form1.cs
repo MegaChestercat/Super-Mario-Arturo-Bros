@@ -15,6 +15,7 @@ namespace SuperMarioArturoBros
 
         SoundPlayer sPlayer, sPlayer2, sPlayer3, sPlayer4, sPlayer5, sPlayer6, sPlayer7, sPlayer8;
         Thread thread, thread2, thread3, thread4, thread5, thread6, thread7, thread8;
+        private readonly CodeSequence _konamiSequence = new CodeSequence();
         bool leftMove;
         int lives = 3;
 
@@ -320,6 +321,10 @@ namespace SuperMarioArturoBros
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (_konamiSequence.IsCompletedBy(e.KeyCode))
+            {
+                _konamiSequence.EasterEgg();
+            }
 
             switch (e.KeyCode)
             {

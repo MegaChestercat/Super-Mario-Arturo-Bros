@@ -238,6 +238,15 @@ namespace SuperMarioArturoBros {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream japan {
+            get {
+                return ResourceManager.GetStream("japan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream jump1 {
             get {
                 return ResourceManager.GetStream("jump1", resourceCulture);
