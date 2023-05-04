@@ -3,7 +3,7 @@
     public class Sprites
     {
         int increment;
-        RectangleF size, display;
+        public RectangleF size, display, temp;
         Bitmap imgDisplay, imgL, imgR;
         public int counter;
 
@@ -29,6 +29,7 @@
             this.increment = original.Width;
             this.display = new RectangleF(starting.X, starting.Y, display.Width, display.Height);
             this.size = new RectangleF(0, 0, original.Width, original.Height);
+            this.temp = this.size;
             this.imgR = right;
             this.imgL = left;
             this.imgDisplay = right;

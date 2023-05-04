@@ -38,7 +38,7 @@ namespace SuperMarioArturoBros
 
         private void Init()
         {
-            timeLeft = 15;
+            timeLeft = 400;
             map = new Map(PCT_CANVAS.Size);
             PCT_CANVAS.Image = map.bmp;
             left = right = false;

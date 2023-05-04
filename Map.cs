@@ -1,4 +1,5 @@
-﻿using System.Drawing.Drawing2D;
+﻿using System.CodeDom.Compiler;
+using System.Drawing.Drawing2D;
 using System.Media;
 using System.Security.Policy;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
@@ -137,8 +138,13 @@ namespace SuperMarioArturoBros
                         case 'o':
                             coin.posX = stepX;
                             coin.posY = stepY;
-                            coin.MoveSlow(7);
+                            coin.MoveSlow(1);
                             coin.Display(g);
+                            if (coin.counter > 10)
+                            {
+                                coin.size = coin.temp;
+                                coin.counter = 0;
+                            }
                             break;
                         case 'Q':
                             g.DrawImage(Resource1.rainbow, stepX, stepY, nTileWidth+1, nTileHeight);
