@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="axolotl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\axolotl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\BG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,6 +129,12 @@
   </data>
   <data name="cc9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\cc9.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chapopote" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\chapopote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cloro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\cloro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\coin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,6 +162,12 @@
   </data>
   <data name="KIRBY_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\KIRBY_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LinkL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\LinkL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LinkR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\LinkR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\lower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

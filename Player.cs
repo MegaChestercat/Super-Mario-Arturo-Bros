@@ -12,6 +12,8 @@ namespace SuperMarioArturoBros
         private float fPlayerVelX = 0.0f;
         private float fPlayerVelY = 0.0f;
 
+        public bool finish, axolotl, cloro, chapopote = false;
+
         public Sprites MainSprite
         {
             get { return mainSprite; }
@@ -31,7 +33,7 @@ namespace SuperMarioArturoBros
 
         public Player()
         {
-            mainSprite = new Sprites(new Size(58, 70), new Size(20, 25), new Point(), Resource1.DINO_00, Resource1.DINO_L);
+            mainSprite = new Sprites(new Size(58, 70), new Size(20, 25), new Point(), Resource1.LinkR, Resource1.LinkL);
         }
         public Player(int r)
         {
@@ -94,6 +96,11 @@ namespace SuperMarioArturoBros
 
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'o', '.');
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'a');
+            CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'L');
+            CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'Y');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'x');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '$');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '!');
 
 
             // COLLISION
@@ -145,54 +152,6 @@ namespace SuperMarioArturoBros
             mainSprite.Display(map.g);
         }
 
-        public void Update(float fElapsedTime, Map map, int r)
-        {
-            //Gravity
-            //fPlayerVelY += 20.0f * fElapsedTime;//---------------
-
-            // Drag
-            if (bPlayerOnGround)
-            {
-                fPlayerVelX += -3.0f * fPlayerVelX * fElapsedTime;
-                if (Math.Abs(fPlayerVelX) < 0.01f)
-                    fPlayerVelX = 0.0f;
-            }
-
-            // Clamp velocities
-            if (fPlayerVelX > 10.0f)
-                fPlayerVelX = 10.0f;
-
-            if (fPlayerVelX < -10.0f)
-                fPlayerVelX = -10.0f;
-            float fNewPlayerPosX = fPlayerPosX + fPlayerVelX * fElapsedTime;
-  
-
-
-            // COLLISION
-            if (fPlayerVelX <= 0)//left
-            {
-                if ((map.GetTile((int)(fNewPlayerPosX + 0.0f), (int)(fPlayerPosY + 0.0f)) != '.') || (map.GetTile((int)(fNewPlayerPosX + 0.0f), (int)(fPlayerPosY + 0.9f)) != '.'))
-                {
-                    if (fPlayerVelX != 0)
-                        fNewPlayerPosX = (int)fNewPlayerPosX + 1;
-                    fPlayerVelX = 0;
-                }
-            }
-            else//right
-            {
-                if ((map.GetTile((int)(fNewPlayerPosX + 1.0f), (int)(fPlayerPosY + 0.0f)) != '.') || (map.GetTile((int)(fNewPlayerPosX + 1.0f), (int)(fPlayerPosY + 0.9f)) != '.'))
-                {
-                    if (fPlayerVelX != 0)
-                        fNewPlayerPosX = (int)fNewPlayerPosX;
-
-                    fPlayerVelX = 0;
-                }
-            }
-            fPlayerPosX = fNewPlayerPosX;
-
-            mainSprite.Display(map.g);
-        }
-
         private static void CheckPicks(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c, char c2)
         {
             // Check for pickups!
@@ -207,6 +166,29 @@ namespace SuperMarioArturoBros
 
             if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f) == c)
                 map.SetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f, c2);
+        }
+
+        private void CheckPick(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c)
+        {
+            if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
+            {
+                finish = true;
+            }
+        }
+
+        private void CheckInteractions(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c)
+        {
+            if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f) == c)
+            {
+                if (c == 'x') axolotl = true;
+                else if (c == '$') cloro = true;
+                else if (c == '!') chapopote = true;
+            }
+            if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f) == c)
+            {
+                if (c == '$') cloro = true;
+                else if (c == '!') chapopote = true;
+            }
         }
 
     }

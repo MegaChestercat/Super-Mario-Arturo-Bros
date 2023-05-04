@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Devices;
 using System.Drawing.Drawing2D;
 using System.Media;
 
@@ -17,6 +18,7 @@ namespace SuperMarioArturoBros
         Thread thread, thread2;
         int counter = 20;
         bool leftMove;
+        int lives = 3;
 
         float fCameraPosX = 0.0f;
         float fCameraPosY = 0.0f;
@@ -74,11 +76,20 @@ namespace SuperMarioArturoBros
 
 
             //BG.Display(e.Graphics);
+            VerifyInteractions(e);
+            if (player.finish)
+            {
+                TIMER.Enabled = false;
+                COUNTDOWN.Enabled = false;
+                MessageBox.Show("Congratulations, you finished the level.  \nTotal Points: " + map.score + "\n\nRemaining time: " + timeLeft, "Level completed");
+                Application.Exit();
+            }
             if(timeLeft >= 0)
             {
                 e.Graphics.DrawString("MARIO \n  " + map.score, new Font("Arcade Normal", 17), Brushes.White, 50, 20);
                 e.Graphics.DrawString("TIME \n " + timeLeft, new Font("Arcade Normal", 17), Brushes.White, 900, 20);
-                e.Graphics.DrawString("LEVEL \n  1", new Font("Arcade Normal", 17), Brushes.White, 480, 20);
+                e.Graphics.DrawString("LEVEL \n  1", new Font("Arcade Normal", 17), Brushes.White, 570, 20);
+                e.Graphics.DrawString("LIVES \n  " + lives, new Font("Arcade Normal", 17), Brushes.White, 340, 20);
             }
             else
             {
@@ -90,8 +101,43 @@ namespace SuperMarioArturoBros
             
         }
 
+        private void VerifyInteractions(PaintEventArgs e)
+        {
+            if (player.axolotl)
+            {
+                TIMER.Enabled = false;
+                COUNTDOWN.Enabled= false;
+                MessageBox.Show("Aaarrrp", "Axolotl");
+                TIMER.Enabled = true;
+                COUNTDOWN.Enabled = true;
+                player.axolotl = false;
+                player.fPlayerPosX = player.fPlayerPosX - 1;
+                player.fPlayerPosY = player.fPlayerPosY - 1;
+                map.score = map.score + 400;
+
+            }
+            else if (player.chapopote)
+            {
+                if(lives > 0)
+                {
+                    player.chapopote = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 1;
+                    player.fPlayerPosY = player.fPlayerPosY - 2;
+                    lives--;
+                }
+                if(lives <= 0)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("Game Over. You run out of lives.", "Game Over");
+                    Application.Exit();
+                }
+            }
+        }
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+          
             switch (e.KeyCode)
             {
                 case Keys.Left:
