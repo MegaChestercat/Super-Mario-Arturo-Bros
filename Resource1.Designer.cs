@@ -71,6 +71,15 @@ namespace SuperMarioArturoBros {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream BackgroundSound {
+            get {
+                return ResourceManager.GetStream("BackgroundSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap brick {
@@ -121,6 +130,24 @@ namespace SuperMarioArturoBros {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream die1 {
+            get {
+                return ResourceManager.GetStream("die1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream die2 {
+            get {
+                return ResourceManager.GetStream("die2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap DINO_00 {
@@ -147,6 +174,15 @@ namespace SuperMarioArturoBros {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream finish {
+            get {
+                return ResourceManager.GetStream("finish", resourceCulture);
             }
         }
         
@@ -187,6 +223,33 @@ namespace SuperMarioArturoBros {
             get {
                 object obj = ResourceManager.GetObject("ice", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream inicio {
+            get {
+                return ResourceManager.GetStream("inicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream jump1 {
+            get {
+                return ResourceManager.GetStream("jump1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream jump2 {
+            get {
+                return ResourceManager.GetStream("jump2", resourceCulture);
             }
         }
         
@@ -277,6 +340,15 @@ namespace SuperMarioArturoBros {
             get {
                 object obj = ResourceManager.GetObject("michael", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream money {
+            get {
+                return ResourceManager.GetStream("money", resourceCulture);
             }
         }
         
@@ -387,6 +459,15 @@ namespace SuperMarioArturoBros {
             get {
                 object obj = ResourceManager.GetObject("stonebrick_mossy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream time {
+            get {
+                return ResourceManager.GetStream("time", resourceCulture);
             }
         }
         

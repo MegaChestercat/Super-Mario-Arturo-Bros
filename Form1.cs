@@ -13,8 +13,8 @@ namespace SuperMarioArturoBros
         int timeLeft;
         bool start = false;
 
-        SoundPlayer sPlayer;
-        Thread thread, thread2;
+        SoundPlayer sPlayer, sPlayer2, sPlayer3, sPlayer4, sPlayer5, sPlayer6, sPlayer7, sPlayer8;
+        Thread thread, thread2, thread3, thread4, thread5, thread6, thread7, thread8;
         bool leftMove;
         int lives = 3;
 
@@ -46,9 +46,88 @@ namespace SuperMarioArturoBros
             fElapsedTime = 0.05f;
             leftMove = true;
             ran = new Random();
-  
+            sPlayer = new SoundPlayer(Resource1.inicio);
+            sPlayer2 = new SoundPlayer(Resource1.finish);
+            sPlayer3 = new SoundPlayer(Resource1.time);
+            sPlayer4 = new SoundPlayer(Resource1.money);
+            sPlayer5 = new SoundPlayer(Resource1.jump1);
+            sPlayer6 = new SoundPlayer(Resource1.jump2);
+            sPlayer7 = new SoundPlayer(Resource1.die1);
+            sPlayer8 = new SoundPlayer(Resource1.die2);
+            Play();
         }
-
+        private void Play()
+        {
+            thread = new Thread(PlayThread);
+            thread.Start();
+        }
+        private void Play2()
+        {
+            thread2 = new Thread(PlayThread2);
+            thread2.Start();
+        }
+        private void Play3()
+        {
+            thread3 = new Thread(PlayThread3);
+            thread3.Start();
+        }
+        private void Play4()
+        {
+            thread4 = new Thread(PlayThread4);
+            thread4.Start();
+        }
+        private void Play5()
+        {
+            thread5 = new Thread(PlayThread5);
+            thread5.Start();
+        }
+        private void Play6()
+        {
+            thread6 = new Thread(PlayThread6);
+            thread6.Start();
+        }
+        private void Play7()
+        {
+            thread7 = new Thread(PlayThread7);
+            thread7.Start();
+        }
+        private void Play8()
+        {
+            thread8 = new Thread(PlayThread8);
+            thread8.Start();
+        }
+        private void PlayThread()
+        {
+            sPlayer.Play();
+        }
+        private void PlayThread2()
+        {
+            sPlayer7.Play();
+        }
+        private void PlayThread3()
+        {
+            sPlayer8.Play();
+        }
+        private void PlayThread4()
+        {
+            sPlayer3.Play();
+        }
+        private void PlayThread5()
+        {
+            sPlayer2.Play();
+        }
+        private void PlayThread6()
+        {
+            sPlayer4.Play();
+        }
+        private void PlayThread7()
+        {
+            sPlayer5.Play();
+        }
+        private void PlayThread8()
+        {
+            sPlayer6.Play();
+        }
         private void TIMER_Tick(object sender, EventArgs e)
         {
             UpdateEnv();
@@ -67,6 +146,7 @@ namespace SuperMarioArturoBros
             {
                 TIMER.Enabled = false;
                 COUNTDOWN.Enabled = false;
+                Play5();
                 MessageBox.Show("Congratulations, you finished the level.  \nTotal Points: " + map.score + "\n\nRemaining time: " + timeLeft, "Level completed");
                 Application.Exit();
             }
@@ -81,8 +161,10 @@ namespace SuperMarioArturoBros
             {
                 TIMER.Enabled = false;
                 COUNTDOWN.Enabled = false;
+                Play4();
                 MessageBox.Show("Game Over. The time has run out.", "Game Over");
                 Application.Exit();
+
             }
 
         }
@@ -157,13 +239,16 @@ namespace SuperMarioArturoBros
                     player.fPlayerPosX = player.fPlayerPosX - 1;
                     player.fPlayerPosY = player.fPlayerPosY - 2;
                     lives--;
+                    Play2();
                 }
                 if (lives <= 0)
                 {
                     TIMER.Enabled = false;
                     COUNTDOWN.Enabled = false;
+                    Play3();
                     MessageBox.Show("Game Over. You run out of lives.", "Game Over");
                     Application.Exit();
+
                 }
             }
             else if (player.cloro)
@@ -172,6 +257,7 @@ namespace SuperMarioArturoBros
                 player.fPlayerPosX = player.fPlayerPosX - 1;
                 player.fPlayerPosY = player.fPlayerPosY - 2;
                 map.score = map.score - 230;
+                Play2();
             }
             else if (player.zubat || player.eye)
             {
@@ -182,11 +268,13 @@ namespace SuperMarioArturoBros
                     player.fPlayerPosX = player.fPlayerPosX - 2;
                     player.fPlayerPosY = player.fPlayerPosY + 2;
                     lives--;
+                    Play2();
                 }
                 if (lives <= 0)
                 {
                     TIMER.Enabled = false;
                     COUNTDOWN.Enabled = false;
+                    Play3();
                     MessageBox.Show("Game Over. You run out of lives.", "Game Over");
                     Application.Exit();
                 }
@@ -201,11 +289,13 @@ namespace SuperMarioArturoBros
                     player.fPlayerPosX = player.fPlayerPosX - 2;
                     player.fPlayerPosY = player.fPlayerPosY - 1;
                     lives--;
+                    Play2();
                 }
                 if (lives <= 0)
                 {
                     TIMER.Enabled = false;
                     COUNTDOWN.Enabled = false;
+                    Play3();
                     MessageBox.Show("Game Over. You run out of lives.", "Game Over");
                     Application.Exit();
                 }
@@ -214,6 +304,7 @@ namespace SuperMarioArturoBros
             {
                 player.star = false;
                 map.score = map.score + 5999;
+                Play6();
             }
             else if (player.coin1)
             {
@@ -241,6 +332,9 @@ namespace SuperMarioArturoBros
                 case Keys.Up:
                     player.FPlayerVelY = -9.0f;
                     player.bPlayerOnGround = false;
+                    int temp = ran.Next(1, 4);
+                    if (temp == 2) Play7();
+                    if (temp == 3) Play8();
                     break;
             }
 
@@ -292,6 +386,9 @@ namespace SuperMarioArturoBros
                         player.FPlayerVelY = -14;
                         player.Frame(2);
                         player.bPlayerOnGround = false;
+                        int temp = ran.Next(1, 4);
+                        if (temp == 2) Play7();
+                        if (temp == 3) Play8();
                     }
                     break;
             }
