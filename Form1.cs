@@ -38,7 +38,7 @@ namespace SuperMarioArturoBros
 
         private void Init()
         {
-            timeLeft = 400;
+            timeLeft = 15;
             map = new Map(PCT_CANVAS.Size);
             PCT_CANVAS.Image = map.bmp;
             left = right = false;
@@ -74,9 +74,20 @@ namespace SuperMarioArturoBros
 
 
             //BG.Display(e.Graphics);
-            e.Graphics.DrawString("MARIO \n  " + map.score, new Font("Arcade Normal", 17), Brushes.White, 50, 20);
-            e.Graphics.DrawString("TIME \n " + timeLeft, new Font("Arcade Normal", 17), Brushes.White, 900, 20);
-            e.Graphics.DrawString("LEVEL \n  1", new Font("Arcade Normal", 17), Brushes.White, 480, 20);
+            if(timeLeft >= 0)
+            {
+                e.Graphics.DrawString("MARIO \n  " + map.score, new Font("Arcade Normal", 17), Brushes.White, 50, 20);
+                e.Graphics.DrawString("TIME \n " + timeLeft, new Font("Arcade Normal", 17), Brushes.White, 900, 20);
+                e.Graphics.DrawString("LEVEL \n  1", new Font("Arcade Normal", 17), Brushes.White, 480, 20);
+            }
+            else
+            {
+                TIMER.Enabled = false;
+                COUNTDOWN.Enabled = false;
+                MessageBox.Show("Game Over. The time has run out.", "Game Over");
+                Application.Exit();
+            }
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
