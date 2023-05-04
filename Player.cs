@@ -12,7 +12,7 @@ namespace SuperMarioArturoBros
         private float fPlayerVelX = 0.0f;
         private float fPlayerVelY = 0.0f;
 
-        public bool finish, axolotl, cloro, chapopote, zubat = false;
+        public bool finish, axolotl, cloro, chapopote, zubat, star = false;
 
         public Sprites MainSprite
         {
@@ -95,13 +95,16 @@ namespace SuperMarioArturoBros
             float fNewPlayerPosY = fPlayerPosY + fPlayerVelY * fElapsedTime;
 
             CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'o', '.');
-            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'a');
+            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'Q', 'o');
+            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'f', '.');
             CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'L');
             CheckPick(map, fNewPlayerPosX, fNewPlayerPosY, 'Y');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'x');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '$');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '!');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'z');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'U');
+            CheckPicks(map, fNewPlayerPosX, fNewPlayerPosY, 'U', '.');
 
 
             // COLLISION
@@ -185,20 +188,24 @@ namespace SuperMarioArturoBros
                 else if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
                 else if (c == 'z') zubat = true;
+                else if (c == 'U') star = true;
             }
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f) == c)
             {
                 if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
                 else if (c == 'z') zubat = true;
+                else if (c == 'U') star = true;
             }
             if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f) == c)
             {
                 if (c == 'z') zubat = true;
+                else if (c == 'U') star = true;
             }
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
             {
                 if (c == 'z') zubat = true;
+                else if (c == 'U') star = true;
             }
         }
 

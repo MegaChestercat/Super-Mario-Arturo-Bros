@@ -84,7 +84,7 @@ namespace SuperMarioArturoBros
                 MessageBox.Show("Congratulations, you finished the level.  \nTotal Points: " + map.score + "\n\nRemaining time: " + timeLeft, "Level completed");
                 Application.Exit();
             }
-            if(timeLeft >= 0)
+            if (timeLeft >= 0)
             {
                 e.Graphics.DrawString("MARIO \n  " + map.score, new Font("Arcade Normal", 17), Brushes.White, 50, 20);
                 e.Graphics.DrawString("TIME \n " + timeLeft, new Font("Arcade Normal", 17), Brushes.White, 900, 20);
@@ -98,7 +98,7 @@ namespace SuperMarioArturoBros
                 MessageBox.Show("Game Over. The time has run out.", "Game Over");
                 Application.Exit();
             }
-            
+
         }
 
         private void VerifyInteractions(PaintEventArgs e)
@@ -106,7 +106,7 @@ namespace SuperMarioArturoBros
             if (player.axolotl)
             {
                 TIMER.Enabled = false;
-                COUNTDOWN.Enabled= false;
+                COUNTDOWN.Enabled = false;
                 MessageBox.Show("Aaarrrp", "Axolotl");
                 TIMER.Enabled = true;
                 COUNTDOWN.Enabled = true;
@@ -118,14 +118,14 @@ namespace SuperMarioArturoBros
             }
             else if (player.chapopote)
             {
-                if(lives > 0)
+                if (lives > 0)
                 {
                     player.chapopote = false;
                     player.fPlayerPosX = player.fPlayerPosX - 1;
                     player.fPlayerPosY = player.fPlayerPosY - 2;
                     lives--;
                 }
-                if(lives <= 0)
+                if (lives <= 0)
                 {
                     TIMER.Enabled = false;
                     COUNTDOWN.Enabled = false;
@@ -157,11 +157,16 @@ namespace SuperMarioArturoBros
                     Application.Exit();
                 }
             }
+            else if (player.star)
+            {
+                player.star = false;
+                map.score = map.score + 5999;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-          
+
             switch (e.KeyCode)
             {
                 case Keys.Left:
