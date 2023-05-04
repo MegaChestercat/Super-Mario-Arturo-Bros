@@ -244,7 +244,7 @@ namespace SuperMarioArturoBros
 
         private void CheckPick(Map map, float fNewPlayerPosX, float fNewPlayerPosY, char c)
         {
-            if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
+            if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 0.0f) == c)
             {
                 finish = true;
             }
