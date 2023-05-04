@@ -12,7 +12,7 @@ namespace SuperMarioArturoBros
         private float fPlayerVelX = 0.0f;
         private float fPlayerVelY = 0.0f;
 
-        public bool finish, axolotl, cloro, chapopote = false;
+        public bool finish, axolotl, cloro, chapopote, zubat = false;
 
         public Sprites MainSprite
         {
@@ -101,6 +101,7 @@ namespace SuperMarioArturoBros
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'x');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '$');
             CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, '!');
+            CheckInteractions(map, fNewPlayerPosX, fNewPlayerPosY, 'z');
 
 
             // COLLISION
@@ -183,11 +184,21 @@ namespace SuperMarioArturoBros
                 if (c == 'x') axolotl = true;
                 else if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
+                else if (c == 'z') zubat = true;
             }
             if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 1.0f) == c)
             {
                 if (c == '$') cloro = true;
                 else if (c == '!') chapopote = true;
+                else if (c == 'z') zubat = true;
+            }
+            if (map.GetTile(fNewPlayerPosX + 1.0f, fNewPlayerPosY + 1.0f) == c)
+            {
+                if (c == 'z') zubat = true;
+            }
+            if (map.GetTile(fNewPlayerPosX + 0.0f, fNewPlayerPosY + 0.0f) == c)
+            {
+                if (c == 'z') zubat = true;
             }
         }
 

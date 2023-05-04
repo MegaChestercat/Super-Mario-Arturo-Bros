@@ -133,6 +133,30 @@ namespace SuperMarioArturoBros
                     Application.Exit();
                 }
             }
+            else if (player.cloro)
+            {
+                player.cloro = false;
+                player.fPlayerPosX = player.fPlayerPosX - 1;
+                player.fPlayerPosY = player.fPlayerPosY - 2;
+                map.score = map.score - 230;
+            }
+            else if (player.zubat)
+            {
+                if (lives > 0)
+                {
+                    player.zubat = false;
+                    player.fPlayerPosX = player.fPlayerPosX - 2;
+                    player.fPlayerPosY = player.fPlayerPosY + 2;
+                    lives--;
+                }
+                if (lives <= 0)
+                {
+                    TIMER.Enabled = false;
+                    COUNTDOWN.Enabled = false;
+                    MessageBox.Show("Game Over. You run out of lives.", "Game Over");
+                    Application.Exit();
+                }
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
