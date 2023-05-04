@@ -27,7 +27,7 @@ namespace SuperMarioArturoBros
 
         public Map(Size size)
         {
-            coin = new Sprites(new Size(35, 33), new Size(nTileWidth, nTileHeight), new Point(), Resource1.coin, Resource1.coin);
+            coin = new Sprites(new Size(134, 134), new Size(nTileWidth, nTileHeight), new Point(), Resource1.croped, Resource1.croped);
             map = "";
             map += ".................................................................................................................................................................................GGGGGGGGGGGGGG.................................................................";
             map += "...............................................................................................................................................BQQQooB...........................GUoooooooooo................................................C..................";
