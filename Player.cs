@@ -33,7 +33,7 @@ namespace SuperMarioArturoBros
 
         public Player()
         {
-            mainSprite = new Sprites(new Size(58, 70), new Size(20, 25), new Point(), Resource1.LinkR, Resource1.LinkL);
+            mainSprite = new Sprites(new Size(15, 21), new Size(15, 21), new Point(), Resource1.mario_RIGHT, Resource1.MARIO_LEFT);
         }
         public Player(int r)
         {

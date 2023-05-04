@@ -172,6 +172,12 @@
   <data name="lower" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\lower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MARIO_LEFT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MARIO_LEFT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mario_RIGHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\mario_RIGHT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mushroom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\mushroom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
